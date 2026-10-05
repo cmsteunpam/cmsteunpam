@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dosen Program Studi Teknik Elektro</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--indigo:#2E3192;--blue:#1B6EC2;--gold:#F5B301;--ink:#26272B;--muted:#6B7280;--soft:#F5F7FC;--line:#E3E7F1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,'Helvetica Neue',Arial,sans-serif}
+.wrap{max-width:1200px;margin:0 auto;padding:32px 20px 48px}
+.head{text-align:center}
+.pill{display:inline-block;background:var(--blue);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:50px}
+h1{margin:14px 0 8px;color:var(--blue);font-size:34px;font-weight:800;text-transform:uppercase}
+.sub{color:var(--muted);max-width:680px;margin:0 auto;line-height:1.6;font-size:15px}
+.bar{width:60px;height:4px;background:var(--gold);border-radius:4px;margin:16px auto 0}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 40px}
+.tabs a{text-decoration:none;color:var(--indigo);border:1.5px solid var(--indigo);font-weight:700;font-size:13px;padding:9px 18px;border-radius:50px;transition:.2s}
+.tabs a:hover{background:var(--indigo);color:#fff}
+.sec{margin-bottom:44px;scroll-margin-top:12px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-left:4px solid var(--blue);padding-left:16px;margin-bottom:18px}
+.eyebrow{color:#D99A00;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.sec h2{margin:4px 0 6px;color:var(--indigo);font-size:22px;font-weight:800}
+.sec p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6;max-width:820px}
+.nav{display:flex;gap:8px;flex-shrink:0}
+.nav button{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--indigo);background:#fff;color:var(--indigo);font-size:20px;line-height:1;cursor:pointer;transition:.2s}
+.nav button:hover:not(:disabled){background:var(--indigo);color:#fff}
+.nav button:disabled{opacity:.3;cursor:default}
+.track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;padding:4px 2px 16px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 calc((100% - 60px)/4);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(46,49,146,.06)}
+.photo{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,var(--indigo),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px;font-weight:800}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.body{padding:16px}
+.name{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--indigo);line-height:1.35}
+.idn{font-size:12px;color:var(--muted);margin:0 0 10px}
+.idn b{color:var(--ink)}
+.jad{display:inline-block;background:#E8F1FB;color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px}
+.links{display:flex;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.links a{flex:1;text-align:center;text-decoration:none;font-size:11.5px;font-weight:700;color:var(--blue);border:1.5px solid var(--blue);border-radius:8px;padding:7px 4px;transition:.2s}
+.links a:hover{background:var(--blue);color:#fff}
+.links a.off{opacity:.35;pointer-events:none}
+.edu-btn{display:flex;align-items:center;gap:6px;width:100%;margin-top:12px;padding:0;background:none;border:0;cursor:pointer;font:800 11px Inter,Arial,sans-serif;letter-spacing:.5px;text-transform:uppercase;color:var(--indigo)}
+.edu-btn i{font-style:normal;color:var(--gold);transition:transform .2s}
+.card.open .edu-btn i{transform:rotate(90deg)}
+.edu{display:none;list-style:none;margin:10px 0 0;padding:0}
+.card.open .edu{display:block}
+.edu li{position:relative;padding:0 0 10px 18px;font-size:12px;color:#4B5160;line-height:1.4}
+.edu li:before{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%;background:var(--indigo);border:2px solid var(--gold)}
+.edu li:after{content:"";position:absolute;left:3px;top:14px;bottom:-4px;width:1px;background:var(--line)}
+.edu li:last-child:after{display:none}
+.edu b{display:block;color:var(--indigo);font-size:11px}
+@media(max-width:960px){.card{flex-basis:calc((100% - 20px)/2)}}
+@media(max-width:560px){.card{flex-basis:82%}h1{font-size:24px}.sec-head{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="pill">Sivitas Akademika</span>
+    <h1>Daftar Dosen Teknik Elektro</h1>
+    <p class="sub">Dosen Program Studi Teknik Elektro terbagi ke dalam empat research area, mendukung riset dan pembelajaran di bidang kelistrikan, kendali, telekomunikasi, dan elektronika.</p>
+    <div class="bar"></div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div id="app"></div>
+</div>
+
+<script>
+/* ========== DATA KATEGORI ========== */
+const CATS = [
+  {id:'power', title:'Electrical Power System', desc:'Lightning System, New/Renewable Energy, Green Energy, Power Transmission, Power Generation, Energy Conversion, Energy Distribution System, High Voltage System, Electrical System Design.'},
+  {id:'control', title:'Control Systems and Computers', desc:'Programmable Logic Controller, Artificial Intelligence in Engineering, Supervisory Control and Data Acquisition(SCADA), Digital Control Systems, Instrumentation Control Systems, Non-Linear Control Systems, Computer Vision & Image Processing, Cloud Computing, Quantum Computing, Computer Aided Design.'},
+  {id:'telco', title:'Telecommunications', desc:'Radio Frequency, Optical Communication, Data Communication, Satellite Communication, Wireless Communication, Mobile Communication, Propagation, Antenna System Design, Digital Signal Processing, Cybersecurity, Telemetry System, Network Planning, Data Security.'},
+  {id:'electronics', title:'Electronics', desc:'Microelectronics, Embedded System, Biomedical Engineering, Electronics Material, Robotics, AIoT, MOS Devices, VLSI System Design, Integrated Circuits, Semiconductor Device Modelling, Nanoelectronics, Green Electronics.'}
+];
+
+/* ========== DATA DOSEN ==========
+   Tambah dosen = salin 1 blok {...} lalu ubah isinya.
+   cat    : power | control | telco | electronics
+   idType : NIDN / NUPTK / NIK
+   photo  : nama file foto SAJA (tanpa folder), karena foto ditaruh sejajar
+            dengan index.html di folder yang sama. Kosong/salah = tampil inisial.
+   scholar/scopus : URL profil (kosongkan bila belum ada)
+   edu    : [jenjang, program studi & universitas]                              */
+const DOSEN = [
+  {cat:'power', name:'Ir. Aripin Triyanto, S.T., M.T., Ph.D', idType:'NIDN', id:'0405088701', jad:'Lektor', photo:'aripin.jpg', scholar:'https://scholar.google.co.id/citations?user=gGlk-kwAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/aripin-triyanto-7178bb138',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains Dan Teknologi Nasional'],['S3','Teknik Elektro, Universiti Malaysia Terengganu'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+  {cat:'power', name:'Angga Septian MN, S.Pd., M.Pd.T.', idType:'NUPTK', id:'6235766667131070', jad:'Lektor', photo:'Angga.jpg', scholar:'https://scholar.google.co.id/citations?user=dRLlahwAAAAJ&hl=id&oi=ao', Linkedln:'https://www.scopus.com/',
+   edu:[['S1','Pendidikan Teknik Elektro, Universitas Negeri Padang'],['S2','Pendidikan Teknik Elektro, Universitas Negeri Padang']]},
+     {cat:'power', name:'Faraida Nafiri, S.T., M.Sc.', idType:'NIDN', id:'0406027603', jad:'Asisten Ahli', photo:'faraida.jpg', scholar:'https://scholar.google.com/citations?user=jfgjeIEAAAAJ&hl=en', Linkedln:'linkedin.com/in/faraida-nafiri-8a18a67?originalSubdomain=de',
+   edu:[['S1','Teknik Elektro, Institut Teknologi Sepuluh Nopember'],['S2','Renewable Energy, Carl von Ossietzky Universität Oldenburg']]},
+        {cat:'power', name:'Ir. Oky Supriadi, S.T., M.T..', idType:'NIDN', id:'0404108105', jad:'Lektor', photo:'oky.jpg', scholar:'https://scholar.google.com/citations?user=GY5jNRMAAAAJ&hl=en&oi=ao', Linkedln:'https://id.linkedin.com/in/oky-supriadi-8b84b9135',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional '],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+           {cat:'power', name:'Nurul Huluq, S.T., M.T..', idType:'NIDN', id:'0410118706', jad:'Lektor', photo:'nur.jpg', scholar:'https://scholar.google.com/', Linkedln:'https://id.linkedin.com/',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional ']]},
+           {cat:'power', name:'Ir. Joko Tri Susilo, S.T., M.T.', idType:'NIDN', id:'0408099203', jad:'Lektor', photo:'jkw.jpg', scholar:'https://scholar.google.co.id/citations?user=jMlLrOMAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/joko-tri-susilo-9a7816119',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional '],['Profesi Insinyur','Universitas Katolik Indonesia Atma Jaya']]},
+              {cat:'power', name:'Ojak Abdul Rozak, S.T., M.T.', idType:'NIDN', id:'0427068102', jad:'Lektor', photo:'ojak.jpg', scholar:'https://scholar.google.co.id/citations?user=QOy2cG8AAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/ojak-abdul-rozak-733559102',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional ']]},
+     {cat:'power', name:'Sari Amalia, S.T., M.T', idType:'NIDN', id:'0405108203', jad:'Tenaga Pengajar', photo:'sari.png', scholar:'https://scholar.google.com/', Linkedln:'https://id.linkedin.com/in/sari-amalia-8b6b4619',
+   edu:[['S1','Teknik Elektro, Institut Teknologi Indonesia'],['S2','Teknik Elektro, Institut Sain dan Teknologi Nasional']]},
+     {cat:'power', name:'Ir. Suminto, S.T., M.T..', idType:'NIDN', id:'0409088502', jad:'Lektor', photo:'suminto.png', scholar:'https://scholar.google.co.id/citations?user=yjwY5B0AAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/suminto-081a99108',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional '],['Profesi Insinyur','Institusi Sains dan Teknologi Nasional ']]},
+     {cat:'power', name:'Ruli Isfihana, S.T., M.T', idType:'NUPTK', id:'7145772673230353', jad:'Tenaga Pengajar', photo:'ruli.png', scholar:'https://scholar.google.co.id/citations?user=R_YV2aMAAAAJ&hl=id&oi=ao', Linkedln:'https://www.scopus.com/',
+   edu:[['S1','Teknik Elektro, Institut Teknologi Nasional Malang'],['S2','Teknik Elektro, Universitas Brawijaya']]},
+     {cat:'power', name:'Drs. Kadarusmanto, M.Eng.', idType:'NIDN', id:'0413126205', jad:'Tenaga Pengajar', photo:'kadar.png', scholar:'https://scholar.google.co.id/citations?user=T5CnkxEAAAAJ&hl=id&oi=ao', Linkedln:'https://www.scopus.com/',
+   edu:[['S1','Fisika, Universitas Padjadjaran'],['S2','Nuklir, Kyushu University']]},
+
+//Batas KBK
+  {cat:'control', name:'Ir. Kartika Sekarsari,S.T.,M.T.', idType:'NIDN', id:'0310087303', jad:'Lektor', photo:'tika.jpg', scholar:'https://scholar.google.com/citations?user=Wjs9edoAAAAJ&hl=id&oi=ao', Linkedln:'https://www.scopus.com/',
+   edu:[['S1','Teknik Elektro, Universitas Mercu Buana'],['S2','Sistem Kontrol, Universitas Indonesia'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+  {cat:'control', name:'Ir. Elfirza Rosiana,S.T.,M.T', idType:'NIDN', id:'0428019101', jad:'Lektor', photo:'el.png', scholar:'https://scholar.google.co.id/citations?user=tMUu9xcAAAAJ&hl=id&oi=ao', Linkedln:'',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+     {cat:'control', name:'Dr. Yoyok Dwi Setyo Pambudi, S.T., M.T.', idType:'NIDN', id:'0422047304', jad:'Lektor', photo:'yoyok.png', scholar:'https://scholar.google.com/citations?hl=id&user=sbpeisMAAAAJ&view_op=list_works&authuser=1&gmla=AIqSsVu5dYIop1Y6mZVh3EA8FqI3KICBcvpCPuC1RGnscVDqtIK3tDJ6JKTJqOL_CrhOEhzYyx0s2oHsb3cAqZdn', Linkedln:'https://id.linkedin.com/in/yoyok-dwi-setyo-pambudi-abb54073',
+   edu:[['S1','Teknik Nuklir, Universitas Gadjah Mada'],['S2','Teknik Elektro, Universitas Indonesia'],['S3','Teknik Elektro, Universitas Indonesia']]},
+     {cat:'control', name:'Ir. Woro Agus Nutriyanto,S.T.,M.T.', idType:'NIDN', id:'0428109001', jad:'Lektor', photo:'woro.jpg', scholar:'https://scholar.google.co.id/citations?user=_ypHqIwAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/woro-agus-nurtiyanto-600315100',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains Dan Teknologi Nasional'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+  {cat:'control', name:'M Toriqul Amien, ST. MT. ', idType:'NIDN', id:'0417017905', jad:'Tenaga Pengajar', photo:'tori.png', scholar:'https://scholar.google.com/citations?user=A7rx1XAAAAAJ&hl=id', Linkedln:'https://id.linkedin.com/in/mtamien',
+   edu:[['S1','Teknik Fisika, Institut Teknologi Sepuluh Nopember'],['S2','Manajemen Telekomunikasi, Universitas Indonesia']]},
+     {cat:'control', name:'Kiswanta, S.Si., M.Si', idType:'NIDN', id:'4863750651130102', jad:'Asisten Ahli', photo:'kis.png', scholar:'https://scholar.google.com/citations?user=xMjUuJ4AAAAJ&hl=id', Linkedln:'https://id.linkedin.com/in/kiswanta-brin-15129622a',
+   edu:[['S1','Fisika Instrumentasi, Universitas Indonesia'],['S2','Ilmu Fisika, Universitas Indonesia']]},
+
+//Batas KBK
+  {cat:'telco', name:'Ir. Ridwan Satrio Hadikusuma, S.T., M.T.', idType:'NUPTK', id:'3033778679130113', jad:'Tenaga Pengajar', photo:'ridwan.png', scholar:'https://scholar.google.co.id/citations?user=zIP2LhcAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/risat01',
+   edu:[['S1','Teknik Elektro, Universitas Singaperbangsa Karawang'],['S2','Teknik Elektro, Universitas Katolik Indonesia Atma Jaya'],['Profesi Insinyur','Universitas Indonesia']]},
+  {cat:'telco', name:'Ir. Dwi Anie Gunastuti, S.T., M. ICT.', idType:'NIDN', id:'0452747648230103', jad:'Lektor', photo:'dwi.jpg', scholar:'https://scholar.google.co.id/citations?user=ZStyWLcAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/dwi-anie-gunastuti-b6492429',
+   edu:[['S1','Teknik Elektro, Institut Teknologi 10 Nopember Surabaya'],['S2',' Information and Communication Technology, University of Wollongong'],['Profesi Insinyur','Universitas Katolik Indonesia Atma Jaya']]},
+  {cat:'telco', name:'Ir. Ellisa Agustina S.T., M.T.', idType:'NIDN', id:'0324088201', jad:'Asisten Ahli', photo:'eli.jpg', scholar:'https://scholar.google.com/citations?user=nAOIvqoAAAAJ&hl=en', Linkedln:'https://id.linkedin.com/in/ellisaagustina2882',
+   edu:[['S1','Teknik Telekomunikasi, Telkom University Bandung'],['S2','Teknik Elektro, Universitas Mercu Buana Jakarta'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+  {cat:'telco', name:'Fahmi Islami Suud, S.T., M.T.I', idType:'NIDN', id:'0401048203', jad:'Asisten Ahli', photo:'fahmi.png', scholar:'', Linkedln:'https://id.linkedin.com/in/fahmi-islami-su-ud-a856937',
+   edu:[['S1','Teknik Telekomunikasi, STT Telkom Bandung'],['S2','Teknik Informatika, BINUS University']]},
+     {cat:'telco', name:'Ram Ariff, S.T., M.M. ', idType:'NIDN', id:'01461000', jad:'Tenaga Pengajar', photo:'ram.png', scholar:'https://scholar.google.com/citations?user=2J2GWDYAAAAJ&hl=en&oi=ao', Linkedln:'https://id.linkedin.com/in/ramariff',
+   edu:[['S1','Teknik Elektro, Universitas Diponegoro'],['S2','Manajemen, Institut Manajemen Telkom']]},
+
+//Batas KBK
+  {cat:'electronics', name:'Ir. Gaguk Firasanto, S.T., M.T.', idType:'NIDN', id:'0413108102', jad:'Lektor', photo:'gaguk.jpg', scholar:'https://scholar.google.com/citations?user=V8a3W50AAAAJ&hl=id', Linkedln:'https://www.linkedin.com/',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional'],['Profesi Insinyur','Universitas Katolik Indonesia Atma Jaya']]},
+  {cat:'electronics', name:'Ir. Sunardi, S.T., M.T.', idType:'NIDN', id:'0405048202', jad:'Lektor', photo:'sun.jpg', scholar:'https://scholar.google.co.id/citations?hl=id&user=IMr6YJsAAAAJ', Linkedln:'https://www.linkedin.com/',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains Dan Teknologi Nasional'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+     {cat:'electronics', name:'Dr. Jan Setiawan, S.Si, M.Si', idType:'NIDN', id:'1953758659130162', jad:'Lektor', photo:'jan.png', scholar:'https://scholar.google.co.id/citations?user=7rlKDiUAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/in/jan-setiawan-52a552183',
+   edu:[['S1','Fisika, IPB University (Institut Pertanian Bogor)'],['S2','Ilmu Material, Universitas Indonesia'],['S3','Ilmu Material, Universitas Indonesia']]},
+  {cat:'electronics', name:'Ir. Irawati, S.T., M.T.', idType:'NIDN', id:'0000000000', jad:'Lektor', photo:'ira.jpg', scholar:'https://scholar.google.com/citations?user=5ShFCZYAAAAJ&hl=en', Linkedln:'https://www.linkedin.com/',
+   edu:[['S1','Teknik Elektro, Universitas Mercu Buana'],['S2','Teknik Elektro, Universitas Mercu Buana'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+   {cat:'electronics', name:'Ir. Erik Yulanda Agustian, S.T., M.T.', idType:'NIDN', id:'0402089401', jad:'Lektor', photo:'erik.jpg', scholar:'https://scholar.google.com/citations?user=BbMwIr4AAAAJ&hl=en&oi=ao', Linkedln:'https://id.linkedin.com/in/erik-agustian-yulanda-1b050a108',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains Dan Teknologi Nasional'],['Profesi Insinyur','Universitas Katolik Indonesia Atma Jaya']]},
+      {cat:'electronics', name:'Ir. Abdurahman, S.T., M.T.', idType:'NIDN', id:'0431128404', jad:'Lektor', photo:'aan.jpg', scholar:'https://scholar.google.co.id/citations?user=DPFgFKsAAAAJ&hl=id&oi=ao', Linkedln:'https://id.linkedin.com/',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains Dan Teknologi Nasional'],['Profesi Insinyur','Institut Teknologi Indonesia']]},
+     {cat:'electronics', name:'Lili Solihin, S.T., M.T.', idType:'NIDN', id:'0428088403', jad:'Lektor', photo:'lili.png', scholar:'https://scholar.google.com/', Linkedln:'https://www.linkedin.com/in/lili-solihin-68a102299?originalSubdomain=id',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional']]},
+  {cat:'electronics', name:'Marfin, S.T., M.T.', idType:'NIDN', id:'0427088706', jad:'Lektor', photo:'marf.png', scholar:'https://scholar.google.com/citations?user=w9uxUzgAAAAJ&hl=id&authuser=2', Linkedln:'https://id.linkedin.com/in/marfin',
+   edu:[['S1','Teknik Elektro, Universitas Pamulang'],['S2','Teknik Elektro, Institut Sains dan Teknologi Nasional']]},
+];
+
+/* ========== RENDER ========== */
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const initials = n => {
+  const w = n.split(',')[0].replace(/^((Prof|Dr|Ir|Drs|Hj?)\.?\s*)+/i,'').trim().split(/\s+/);
+  return ((w[0]||'')[0] + (w[1]||'')[0] || w[0][0]).toUpperCase();
+};
+const link = (u, t) => u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${t}</a>` : `<a class="off">${t}</a>`;
+
+const card = d => `
+  <article class="card">
+    <div class="photo"><span>${esc(initials(d.name))}</span>${d.photo ? `<img src="${esc(d.photo)}" alt="${esc(d.name)}" loading="lazy" onerror="this.remove()">` : ''}</div>
+    <div class="body">
+      <h3 class="name">${esc(d.name)}</h3>
+      <p class="idn"><b>${esc(d.idType)}</b> ${esc(d.id)}</p>
+      <span class="jad">${esc(d.jad)}</span>
+      <div class="links">${link(d.scholar,'Google Scholar')}${link(d.Linkedln,'Linkedn')}</div>
+      <button class="edu-btn" type="button" aria-expanded="false"><i>&#9656;</i> Riwayat Pendidikan</button>
+      <ul class="edu">${d.edu.map(e => `<li><b>${esc(e[0])}</b>${esc(e[1])}</li>`).join('')}</ul>
+    </div>
+  </article>`;
+
+document.getElementById('tabs').innerHTML = CATS.map(c => `<a href="#${c.id}">${esc(c.title)}</a>`).join('');
+document.getElementById('app').innerHTML = CATS.map((c, i) => `
+  <section class="sec" id="${c.id}">
+    <div class="sec-head">
+      <div>
+        <span class="eyebrow">Research Area 0${i + 1}</span>
+        <h2>${esc(c.title)}</h2>
+        <p>${esc(c.desc)}</p>
+      </div>
+      <div class="nav">
+        <button type="button" class="prev" aria-label="Sebelumnya">&#8249;</button>
+        <button type="button" class="next" aria-label="Berikutnya">&#8250;</button>
+      </div>
+    </div>
+    <div class="track">${DOSEN.filter(d => d.cat === c.id).map(card).join('')}</div>
+  </section>`).join('');
+
+/* ========== SLIDER ========== */
+document.querySelectorAll('.sec').forEach(s => {
+  const t = s.querySelector('.track'), p = s.querySelector('.prev'), n = s.querySelector('.next');
+  const upd = () => {
+    p.disabled = t.scrollLeft <= 2;
+    n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2;
+  };
+  p.onclick = () => t.scrollBy({left: -(t.clientWidth + 20), behavior: 'smooth'});
+  n.onclick = () => t.scrollBy({left: t.clientWidth + 20, behavior: 'smooth'});
+  t.addEventListener('scroll', upd);
+  window.addEventListener('resize', upd);
+  upd();
+});
+
+/* ========== RIWAYAT PENDIDIKAN ========== */
+document.addEventListener('click', e => {
+  const b = e.target.closest('.edu-btn');
+  if (!b) return;
+  const c = b.closest('.card');
+  c.classList.toggle('open');
+  b.setAttribute('aria-expanded', c.classList.contains('open'));
+});
+</script>
+</body>
+</html>
